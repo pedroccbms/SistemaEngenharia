@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="preenchCampos" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="labelNome" min="-2" max="-2" attributes="0"/>
+                              <Component id="nomeObra" min="-2" pref="192" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="tipoDoSobrado" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="labelTipoSobrado" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="labelLaje" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="labelReboco" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="laje" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="reboco" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="alvenariaMetro" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="labelAlvenariaMetros" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelObraMetros" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="labelVigaBaldrame" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelCobertura" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CoberturaML" min="-2" pref="62" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                              <Component id="labelTipo" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Component id="metroObra" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="VigaBaldrame" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="labelTijolo" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="tijoloTipo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelContraPiso" min="-2" max="-2" attributes="0"/>
+                                          <Component id="contraPisoEmMetros" min="-2" pref="62" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="labelBanheirosQtde" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tipoMaterial" min="-2" max="-2" attributes="0"/>
+                                          <Component id="qtdBanheiro" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabel3" max="32767" attributes="0"/>
+                      <Component id="dataTermino" max="32767" attributes="0"/>
+                      <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
+                      <Component id="dataInicio" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="boxUmavez" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelPilares" min="-2" max="-2" attributes="0"/>
+                  <Component id="pilaresML" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                  <Component id="labelEsquadria" min="-2" max="-2" attributes="0"/>
+                  <Component id="esquadriaMetros" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="labelLavaboQtde" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="tipoLavabos" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="botaoSalvarObra" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="botaoCancelarObra" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="preenchCampos" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="nomeObra" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelTipoSobrado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelLaje" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelReboco" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="dataTermino" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tipoDoSobrado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="laje" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="reboco" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelObraMetros" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelAlvenariaMetros" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="boxUmavez" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="metroObra" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="alvenariaMetro" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelVigaBaldrame" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelCobertura" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelPilares" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="VigaBaldrame" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CoberturaML" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pilaresML" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelTijolo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelEsquadria" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tijoloTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tipoMaterial" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="esquadriaMetros" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelContraPiso" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelBanheirosQtde" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelLavaboQtde" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="contraPisoEmMetros" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="qtdBanheiro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tipoLavabos" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="botaoSalvarObra" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="botaoCancelarObra" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="preenchCampos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Preencha os campos abaixo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelNome">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nome:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nomeObra">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeObraActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Data de Inicio:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="dataTermino">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataTerminoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Data de Termino:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="dataInicio">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataInicioActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelTipoSobrado">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tipo do Sobrado"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelLaje">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Laje?"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelReboco">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reboco?"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="tipoDoSobrado">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="Sal&#xe3;o"/>
+          </StringArray>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tipoDoSobradoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="laje">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Sim"/>
+            <StringItem index="1" value="N&#xe3;o"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="reboco">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Sim"/>
+            <StringItem index="1" value="N&#xe3;o"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelObraMetros">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Obra(em m&#xb2;)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="metroObra">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelAlvenariaMetros">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alvenaria(em m&#xb2;)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="alvenariaMetro">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alvenariaMetroActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="boxUmavez">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Uma vez"/>
+            <StringItem index="1" value="Meia Vez"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelVigaBaldrame">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Viga Baldrame(em m&#xb2;)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="VigaBaldrame">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelCobertura">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cobertura(em ML)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="CoberturaML">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelPilares">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pilares(em ML)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="pilaresML">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelTijolo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tijolo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="tijoloTipo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="5">
+            <StringItem index="0" value="Bloco de Concreto"/>
+            <StringItem index="1" value="Tijolo Barro Cozido"/>
+            <StringItem index="2" value="Tijo Furado - 8 Furos"/>
+            <StringItem index="3" value="Tijolo Furado - 10 Furos"/>
+            <StringItem index="4" value="Tijolo de Vidro"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelTipo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tipo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="tipoMaterial">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="Ferro"/>
+            <StringItem index="1" value="Madeira"/>
+            <StringItem index="2" value="Aluminio"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelEsquadria">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Esquadria(em m&#xb2;)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="esquadriaMetros">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelContraPiso">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ContraPiso (em m&#xb2;)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="contraPisoEmMetros">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelBanheirosQtde">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Banheiros"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelLavaboQtde">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Lavabos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoSalvarObra">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Salvar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoSalvarObraActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoCancelarObra">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCancelarObraActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="qtdBanheiro">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="1"/>
+            <StringItem index="1" value="2"/>
+            <StringItem index="2" value="3"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="tipoLavabos">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="1"/>
+            <StringItem index="1" value="2"/>
+            <StringItem index="2" value="3"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
