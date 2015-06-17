@@ -23,7 +23,8 @@ public class ConectaBanco {
     public Statement stm;//realizar pesquisas do bd
     public ResultSet rs;//responsável por armazernar o resultado de uma pesquisa passada para stm
     private String driver = "org.postgresql.Driver"; //responsavel por identificar o serviço do bd
-    private String caminho = "jdbc:postgresql://localhost:5432/SistemaEngenharia";//responsavel por setar o local do bd
+    //private String caminho = "jdbc:postgresql://localhost:5432/SistemaEngenharia";//responsavel por setar o local do bd
+    private String caminho = "jdbc:postgresql://localhost:5432/postgres";//responsavel por setar o local do bd
     private String usuario = "postgres";
     private String senha = "1234";
     public Connection conn;//responsavel por realizar a conexao com o bd

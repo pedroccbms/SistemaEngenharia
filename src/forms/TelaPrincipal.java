@@ -6,14 +6,13 @@
 package forms;
 
 import dB.ConectaBanco;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Anderson
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-    
-    private FormularioObrasSobrado cadastrar = new FormularioObrasSobrado();
     
     ConectaBanco conecta = new ConectaBanco();//variavel global
     
@@ -40,16 +39,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jLabel1 = new javax.swing.JLabel();
+        textoLogin = new javax.swing.JLabel();
+        usuarioLoginText = new javax.swing.JTextField();
+        textoUsuario = new javax.swing.JLabel();
+        textoSenha = new javax.swing.JLabel();
+        botaoAcessar = new javax.swing.JButton();
+        jPasswordCampo = new javax.swing.JPasswordField();
         jMenuBar1 = new javax.swing.JMenuBar();
-        MenuCadastrarObras = new javax.swing.JMenu();
+        menuCadastrarObras = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
         ButomConsultar = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        butonRemover = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menuFuncionarios = new javax.swing.JMenu();
+        botaoCadastrarFuncionario = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -67,16 +73,54 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema para Empresa de Engenharia");
 
-        MenuCadastrarObras.setText("Obras");
-        MenuCadastrarObras.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setText("SISTEMA DE ENGENHARIA");
+
+        textoLogin.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        textoLogin.setText("LOGIN");
+
+        usuarioLoginText.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        usuarioLoginText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuCadastrarObrasActionPerformed(evt);
+                usuarioLoginTextActionPerformed(evt);
+            }
+        });
+
+        textoUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        textoUsuario.setText("USUÁRIO");
+
+        textoSenha.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        textoSenha.setText("SENHA");
+
+        botaoAcessar.setText("Acessar");
+        botaoAcessar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAcessarActionPerformed(evt);
+            }
+        });
+
+        jPasswordCampo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordCampoActionPerformed(evt);
+            }
+        });
+
+        menuCadastrarObras.setText("Obras");
+        menuCadastrarObras.setEnabled(false);
+        menuCadastrarObras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastrarObrasActionPerformed(evt);
             }
         });
 
         jMenu1.setText("Cadastrar");
 
         jMenuItem11.setText("Casa");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem11);
 
         jMenuItem12.setText("Sobrado");
@@ -88,38 +132,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem12);
 
         jMenuItem13.setText("Salão");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem13);
 
-        MenuCadastrarObras.add(jMenu1);
+        menuCadastrarObras.add(jMenu1);
 
-        ButomConsultar.setText("Consultar");
+        ButomConsultar.setText("Gerenciar");
         ButomConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButomConsultarActionPerformed(evt);
             }
         });
-        MenuCadastrarObras.add(ButomConsultar);
+        menuCadastrarObras.add(ButomConsultar);
 
-        jMenuItem5.setText("Alterar");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar1.add(menuCadastrarObras);
+
+        menuFuncionarios.setText("Funcionarios");
+        menuFuncionarios.setEnabled(false);
+
+        botaoCadastrarFuncionario.setText("Cadastrar");
+        botaoCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                botaoCadastrarFuncionarioActionPerformed(evt);
             }
         });
-        MenuCadastrarObras.add(jMenuItem5);
+        menuFuncionarios.add(botaoCadastrarFuncionario);
 
-        butonRemover.setText("Remover");
-        butonRemover.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonRemoverActionPerformed(evt);
-            }
-        });
-        MenuCadastrarObras.add(butonRemover);
+        jMenuItem8.setText("Gerenciar");
+        menuFuncionarios.add(jMenuItem8);
 
-        jMenuBar1.add(MenuCadastrarObras);
-
-        jMenu2.setText("Funcionarios");
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menuFuncionarios);
 
         jMenu3.setText("Sair");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -140,11 +186,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textoUsuario)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(textoSenha)
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(usuarioLoginText, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                            .addComponent(textoLogin)
+                            .addComponent(jPasswordCampo))
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoAcessar)))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(53, 53, 53)
+                .addComponent(textoLogin)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usuarioLoginText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoUsuario))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(textoSenha)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botaoAcessar)
+                        .addComponent(jPasswordCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,13 +229,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
      
     }//GEN-LAST:event_jMenu3ActionPerformed
 
-    private void MenuCadastrarObrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCadastrarObrasActionPerformed
+    private void menuCadastrarObrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastrarObrasActionPerformed
         //new TelaCadastrarObras().setVisible(true);
-    }//GEN-LAST:event_MenuCadastrarObrasActionPerformed
-
-    private void butonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonRemoverActionPerformed
-        new TelaRemoverObra().setVisible(true);
-    }//GEN-LAST:event_butonRemoverActionPerformed
+    }//GEN-LAST:event_menuCadastrarObrasActionPerformed
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         conecta.desconecta();
@@ -169,6 +240,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         
+    FormularioObrasSobrado cadastrar = new FormularioObrasSobrado();
         if(!cadastrar.isVisible()){
             cadastrar.setVisible(true);
         }       
@@ -179,9 +251,50 @@ public class TelaPrincipal extends javax.swing.JFrame {
         new TelaConsultarObra().setVisible(true);
     }//GEN-LAST:event_ButomConsultarActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        new TelaAlterarObra().setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    private void usuarioLoginTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioLoginTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioLoginTextActionPerformed
+
+    private void jPasswordCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordCampoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordCampoActionPerformed
+
+    private void botaoAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAcessarActionPerformed
+        if(usuarioLoginText.getText().equals("admin") && (jPasswordCampo.getText().equals("admin"))){
+            JOptionPane.showMessageDialog(null, "Usuario autenticado com Sucesso");
+            menuCadastrarObras.setEnabled(true);
+            menuFuncionarios.setEnabled(true);
+            textoUsuario.setVisible(false);
+            textoSenha.setVisible(false);
+            botaoAcessar.setVisible(false);
+            textoLogin.setVisible(false);
+            usuarioLoginText.setVisible(false);
+            jPasswordCampo.setVisible(false);
+        }
+        
+    }//GEN-LAST:event_botaoAcessarActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        
+        FormularioObrasCasa cadastrar = new FormularioObrasCasa();
+        if(!cadastrar.isVisible()){
+            cadastrar.setVisible(true);
+        }       
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        FormularioObrasSalão cadastrar = new FormularioObrasSalão();
+        if(!cadastrar.isVisible()){
+            cadastrar.setVisible(true);
+        } 
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void botaoCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarFuncionarioActionPerformed
+        CadastrarFuncionario cadastrar = new CadastrarFuncionario();
+        if(!cadastrar.isVisible()){
+            cadastrar.setVisible(true);
+        } 
+    }//GEN-LAST:event_botaoCadastrarFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,10 +333,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ButomConsultar;
-    private javax.swing.JMenu MenuCadastrarObras;
-    private javax.swing.JMenuItem butonRemover;
+    private javax.swing.JButton botaoAcessar;
+    private javax.swing.JMenuItem botaoCadastrarFuncionario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -234,7 +347,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JPasswordField jPasswordCampo;
+    private javax.swing.JMenu menuCadastrarObras;
+    private javax.swing.JMenu menuFuncionarios;
+    private javax.swing.JLabel textoLogin;
+    private javax.swing.JLabel textoSenha;
+    private javax.swing.JLabel textoUsuario;
+    private javax.swing.JTextField usuarioLoginText;
     // End of variables declaration//GEN-END:variables
 }
