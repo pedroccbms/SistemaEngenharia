@@ -26,7 +26,7 @@ public class ConectaBanco {
     //private String caminho = "jdbc:postgresql://localhost:5432/SistemaEngenharia";//responsavel por setar o local do bd
     private String caminho = "jdbc:postgresql://localhost:5432/postgres";//responsavel por setar o local do bd
     private String usuario = "postgres";
-    private String senha = "1234";
+    private String senha = "fabrica";
     public Connection conn;//responsavel por realizar a conexao com o bd
     
     public void conexao(){//metodo para conectar no bd

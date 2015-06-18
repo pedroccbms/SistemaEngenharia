@@ -1,7 +1,8 @@
 package forms;
 
 
-import Class.Sobrado;
+
+import Class.Obra;
 import dB.ConectaBanco;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -23,7 +24,7 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     
     ConectaBanco conecta = new ConectaBanco();
     
-    Sobrado novo;
+  
     
     public FormularioObrasCasa() {
         initComponents();
@@ -48,35 +49,18 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
         dataInicio = new javax.swing.JTextField();
         labelTipoSobrado = new javax.swing.JLabel();
         labelLaje = new javax.swing.JLabel();
-        labelReboco = new javax.swing.JLabel();
         tipoDoSobrado = new javax.swing.JComboBox();
         laje = new javax.swing.JComboBox();
-        reboco = new javax.swing.JComboBox();
         labelObraMetros = new javax.swing.JLabel();
         metroObra = new javax.swing.JTextField();
-        labelAlvenariaMetros = new javax.swing.JLabel();
-        alvenariaMetro = new javax.swing.JTextField();
-        boxUmavez = new javax.swing.JComboBox();
         labelVigaBaldrame = new javax.swing.JLabel();
         VigaBaldrame = new javax.swing.JTextField();
-        labelCobertura = new javax.swing.JLabel();
-        CoberturaML = new javax.swing.JTextField();
         labelPilares = new javax.swing.JLabel();
         pilaresML = new javax.swing.JTextField();
         labelTijolo = new javax.swing.JLabel();
         tijoloTipo = new javax.swing.JComboBox();
-        labelTipo = new javax.swing.JLabel();
-        tipoMaterial = new javax.swing.JComboBox();
-        labelEsquadria = new javax.swing.JLabel();
-        esquadriaMetros = new javax.swing.JTextField();
-        labelContraPiso = new javax.swing.JLabel();
-        contraPisoEmMetros = new javax.swing.JTextField();
-        labelBanheirosQtde = new javax.swing.JLabel();
-        labelLavaboQtde = new javax.swing.JLabel();
         botaoSalvarObra = new javax.swing.JButton();
         botaoCancelarObra = new javax.swing.JButton();
-        qtdBanheiro = new javax.swing.JComboBox();
-        tipoLavabos = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -110,8 +94,6 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
 
         labelLaje.setText("Laje?");
 
-        labelReboco.setText("Reboco?");
-
         tipoDoSobrado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Casa" }));
         tipoDoSobrado.setEnabled(false);
         tipoDoSobrado.addActionListener(new java.awt.event.ActionListener() {
@@ -122,41 +104,15 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
 
         laje.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sim", "Não" }));
 
-        reboco.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sim", "Não" }));
-
         labelObraMetros.setText("Obra(em m²)");
 
-        labelAlvenariaMetros.setText("Alvenaria(em m²)");
-
-        alvenariaMetro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alvenariaMetroActionPerformed(evt);
-            }
-        });
-
-        boxUmavez.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Uma vez", "Meia Vez" }));
-
         labelVigaBaldrame.setText("Viga Baldrame(em m²)");
-
-        labelCobertura.setText("Cobertura(em ML)");
 
         labelPilares.setText("Pilares(em ML)");
 
         labelTijolo.setText("Tijolo");
 
         tijoloTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bloco de Concreto", "Tijolo Barro Cozido", "Tijo Furado - 8 Furos", "Tijolo Furado - 10 Furos", "Tijolo de Vidro" }));
-
-        labelTipo.setText("Tipo");
-
-        tipoMaterial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ferro", "Madeira", "Aluminio" }));
-
-        labelEsquadria.setText("Esquadria(em m²)");
-
-        labelContraPiso.setText("ContraPiso (em m²)");
-
-        labelBanheirosQtde.setText("Banheiros");
-
-        labelLavaboQtde.setText("Lavabos");
 
         botaoSalvarObra.setText("Próximo");
         botaoSalvarObra.addActionListener(new java.awt.event.ActionListener() {
@@ -172,10 +128,6 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
             }
         });
 
-        qtdBanheiro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3" }));
-
-        tipoLavabos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3" }));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,7 +138,7 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(labelNome)
                                 .addComponent(nomeObra, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
@@ -196,46 +148,20 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(18, 18, 18)
-                                            .addComponent(labelLaje)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(labelReboco))
+                                            .addComponent(labelLaje))
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(9, 9, 9)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(laje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(reboco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(alvenariaMetro, javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(labelAlvenariaMetros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                            .addGap(0, 0, Short.MAX_VALUE)))))
+                                            .addComponent(laje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(62, 62, 62)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labelObraMetros)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(labelVigaBaldrame)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labelCobertura)
-                                            .addComponent(CoberturaML, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(36, 36, 36)
-                                                .addComponent(labelTipo))))
+                                    .addComponent(labelVigaBaldrame)
                                     .addComponent(metroObra, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(VigaBaldrame, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labelTijolo)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tijoloTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(labelContraPiso)
-                                            .addComponent(contraPisoEmMetros, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(labelBanheirosQtde)
-                                            .addComponent(tipoMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(qtdBanheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(24, 24, 24)))))
+                                    .addComponent(tijoloTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(106, 106, 106)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -243,14 +169,9 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                         .addComponent(dataTermino)
                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(dataInicio))
-                    .addComponent(boxUmavez, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPilares)
-                    .addComponent(pilaresML, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelEsquadria)
-                    .addComponent(esquadriaMetros, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelLavaboQtde)
-                    .addComponent(tipoLavabos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46))
+                    .addComponent(pilaresML, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(botaoSalvarObra)
@@ -275,58 +196,33 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(labelTipoSobrado)
-                    .addComponent(labelLaje)
-                    .addComponent(labelReboco))
+                    .addComponent(labelLaje))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tipoDoSobrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(laje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(reboco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(laje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelObraMetros)
-                    .addComponent(labelAlvenariaMetros)
-                    .addComponent(boxUmavez, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(labelObraMetros)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(metroObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alvenariaMetro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(metroObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelVigaBaldrame)
-                    .addComponent(labelCobertura)
                     .addComponent(labelPilares))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(VigaBaldrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CoberturaML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pilaresML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTijolo)
-                    .addComponent(labelTipo)
-                    .addComponent(labelEsquadria))
+                .addComponent(labelTijolo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tijoloTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tipoMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(esquadriaMetros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelContraPiso)
-                    .addComponent(labelBanheirosQtde)
-                    .addComponent(labelLavaboQtde))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(contraPisoEmMetros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(qtdBanheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tipoLavabos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addComponent(tijoloTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoSalvarObra)
                     .addComponent(botaoCancelarObra))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -362,10 +258,6 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     private void tipoDoSobradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoDoSobradoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tipoDoSobradoActionPerformed
-
-    private void alvenariaMetroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alvenariaMetroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_alvenariaMetroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -410,31 +302,18 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CoberturaML;
     private javax.swing.JTextField VigaBaldrame;
-    private javax.swing.JTextField alvenariaMetro;
     private javax.swing.JButton botaoCancelarObra;
     private javax.swing.JButton botaoSalvarObra;
-    private javax.swing.JComboBox boxUmavez;
-    private javax.swing.JTextField contraPisoEmMetros;
     private javax.swing.JTextField dataInicio;
     private javax.swing.JTextField dataTermino;
-    private javax.swing.JTextField esquadriaMetros;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel labelAlvenariaMetros;
-    private javax.swing.JLabel labelBanheirosQtde;
-    private javax.swing.JLabel labelCobertura;
-    private javax.swing.JLabel labelContraPiso;
-    private javax.swing.JLabel labelEsquadria;
     private javax.swing.JLabel labelLaje;
-    private javax.swing.JLabel labelLavaboQtde;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelObraMetros;
     private javax.swing.JLabel labelPilares;
-    private javax.swing.JLabel labelReboco;
     private javax.swing.JLabel labelTijolo;
-    private javax.swing.JLabel labelTipo;
     private javax.swing.JLabel labelTipoSobrado;
     private javax.swing.JLabel labelVigaBaldrame;
     private javax.swing.JComboBox laje;
@@ -442,12 +321,8 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     private javax.swing.JTextField nomeObra;
     private javax.swing.JTextField pilaresML;
     private javax.swing.JLabel preenchCampos;
-    private javax.swing.JComboBox qtdBanheiro;
-    private javax.swing.JComboBox reboco;
     private javax.swing.JComboBox tijoloTipo;
     private javax.swing.JComboBox tipoDoSobrado;
-    private javax.swing.JComboBox tipoLavabos;
-    private javax.swing.JComboBox tipoMaterial;
     // End of variables declaration//GEN-END:variables
 
     private boolean validarCampos(){
@@ -460,42 +335,31 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     }
     public void preencherCampo() throws Exception{
         try {
-            PreparedStatement pst = conecta.conn.prepareStatement("Insert into obra (nome_obra, data_inicio, data_termino, tipo_obra, obra_metro)values(?,?,?,?,?)");
-            pst.setString(1, nomeObra.getText());
-            pst.setString(2, dataInicio.getText());
-            pst.setString(3, dataTermino.getText());
-            pst.setString(4, tipoDoSobrado.getName());
-            pst.setDouble(5, new Double(metroObra.getText()));
-            pst.executeUpdate();
-        } catch (SQLException ex) {
+            Obra obra = new Obra();
+            obra.setNomeObra(nomeObra.getText());
+            //obra.setDataInicio(dataInicio.getText());
+            //obra.setDataTermino( dataTermino.getText());
+            obra.setMetroQuadradoObra(Double.parseDouble(metroObra.getText()));
+            obra.setTipoObra(1);
+            obra.Calcular(obra, Double.parseDouble(VigaBaldrame.getText()), tijoloTipo.getSelectedIndex() ,  Double.parseDouble(pilaresML.getText()));
+           
+        } catch (Exception ex) {
             Logger.getLogger(FormularioObrasSobrado.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try {
-            PreparedStatement pst = conecta.conn.prepareStatement("Insert into insumos (metroQuadAlv, metroQuadReb, metroQuadViga, metroQuadCobertura, pintura, tipoTijolo, quantEsq, quantPilar, quantBanheiro, quantCozinha)values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            pst.setDouble(1, new Double(alvenariaMetro.getText()));
-
-        } catch (SQLException ex) {
-            Logger.getLogger(FormularioObrasSobrado.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
     }
     private void limparCampos(){
         nomeObra.setText("");
         dataInicio.setText("");
         dataTermino.setText("");
-        contraPisoEmMetros.setText("");
-        alvenariaMetro.setText("");
         metroObra.setText("");
         pilaresML.setText("");
-        esquadriaMetros.setText("");
-        contraPisoEmMetros.setText("");
-        CoberturaML.setText("");
+
         VigaBaldrame.setText("");
-        qtdBanheiro.setSelectedIndex(0);
-        reboco.setSelectedIndex(0);
+
         tijoloTipo.setSelectedIndex(0);
         tipoDoSobrado.setSelectedIndex(0);
-        tipoLavabos.setSelectedIndex(0);
-        tipoMaterial.setSelectedIndex(0);
+
         
     }
 }
