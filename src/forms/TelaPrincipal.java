@@ -163,6 +163,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuFuncionarios.add(botaoCadastrarFuncionario);
 
         jMenuItem8.setText("Gerenciar");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         menuFuncionarios.add(jMenuItem8);
 
         jMenuBar1.add(menuFuncionarios);
@@ -295,6 +300,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             cadastrar.setVisible(true);
         } 
     }//GEN-LAST:event_botaoCadastrarFuncionarioActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        new TelaGerenciarFuncionario().setVisible(true);
+               
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments
