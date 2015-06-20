@@ -95,17 +95,20 @@ public class ObraDao {
         }
     }
 
-    public List<Obra> listar() {
-        String sql = "SELECT * FROM obra";
+    public List<Obra> listar() throws SQLException{
+        String sql = "select * from obra";
         ResultSet rs = null;
         List<Obra> listarObra = new ArrayList<Obra>();
         Obra obrasCadastradas = null;
         try {
             this.connection = new ConectaBanco();
             this.connection.conexao();
-            this.connection.stm = this.connection.conn.prepareStatement(sql);
+            PreparedStatement prepared = this.connection.conn.prepareStatement(sql);
+            rs = prepared.executeQuery();
+            
             while (rs.next()) {
                 obrasCadastradas = new Obra();
+                obrasCadastradas.setIdObra(rs.getInt("id_obra"));
                 obrasCadastradas.setNomeObra(rs.getString("nome_obra"));
                 obrasCadastradas.setDataInicio(rs.getString("data_inicio"));
                 obrasCadastradas.setDataTermino(rs.getString("data_termino"));
@@ -115,7 +118,7 @@ public class ObraDao {
 
                 listarObra.add(obrasCadastradas);
             }
-            this.connection.stm.close();
+            //this.connection.stm.close();
             rs.close();
             
             return listarObra;

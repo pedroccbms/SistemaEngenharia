@@ -134,6 +134,7 @@ public class Obra {
 
 	}
 
+    
     /**
      * @return the nomeObra
      */
@@ -147,7 +148,9 @@ public class Obra {
     public void setNomeObra(String nomeObra) {
         this.nomeObra = nomeObra;
     }
-
+    public void setIdObra(int idObra){
+        this.idObra = idObra;
+    }
     /**
      * @return the idObra
      */

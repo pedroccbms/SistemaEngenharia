@@ -48,6 +48,7 @@ public class GerenciarObra extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         botaoAlterar = new javax.swing.JButton();
         botaoRemover = new javax.swing.JButton();
+        botaoSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,8 +74,20 @@ public class GerenciarObra extends javax.swing.JFrame {
         jLabel1.setText("GERENCIAR OBRA");
 
         botaoAlterar.setText("Alterar");
+        botaoAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAlterarActionPerformed(evt);
+            }
+        });
 
         botaoRemover.setText("Remover");
+
+        botaoSair.setText("Sair");
+        botaoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +105,9 @@ public class GerenciarObra extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(botaoAlterar)
                         .addGap(34, 34, 34)
-                        .addComponent(botaoRemover)))
+                        .addComponent(botaoRemover)
+                        .addGap(30, 30, 30)
+                        .addComponent(botaoSair)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -105,12 +120,21 @@ public class GerenciarObra extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoAlterar)
-                    .addComponent(botaoRemover))
+                    .addComponent(botaoRemover)
+                    .addComponent(botaoSair))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+       GerenciarObra.this.dispose();
+    }//GEN-LAST:event_botaoSairActionPerformed
+
+    private void botaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarActionPerformed
+        new FormularioObrasCasa().setVisible(true);
+    }//GEN-LAST:event_botaoAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,6 +174,7 @@ public class GerenciarObra extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAlterar;
     private javax.swing.JButton botaoRemover;
+    private javax.swing.JButton botaoSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
