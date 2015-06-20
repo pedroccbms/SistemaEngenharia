@@ -1,14 +1,12 @@
 package forms;
 
-
-
 import Class.Obra;
 import dB.ConectaBanco;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import obra.fachada.ObraFachada;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,14 +19,18 @@ import javax.swing.JOptionPane;
  */
 public class FormularioObrasCasa extends javax.swing.JFrame {
 
+    private ObraFachada cadastra;
+    private Obra cadastrarObra;        
+   // ConectaBanco conecta = new ConectaBanco();
     
-    ConectaBanco conecta = new ConectaBanco();
-    
-  
-    
+      public String nomeObra(){
+        
+        return nomeObra.getText();
+    }
     public FormularioObrasCasa() {
         initComponents();
-        conecta.conexao();
+        this.cadastra = new ObraFachada();
+     //   conecta.conexao();
     }
 
     /**
@@ -45,11 +47,11 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
         nomeObra = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         dataTermino = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelDataTermino = new javax.swing.JLabel();
         dataInicio = new javax.swing.JTextField();
-        labelTipoSobrado = new javax.swing.JLabel();
+        labelTipoObra = new javax.swing.JLabel();
         labelLaje = new javax.swing.JLabel();
-        tipoDoSobrado = new javax.swing.JComboBox();
+        tipoDoObra = new javax.swing.JComboBox();
         laje = new javax.swing.JComboBox();
         labelObraMetros = new javax.swing.JLabel();
         metroObra = new javax.swing.JTextField();
@@ -82,7 +84,7 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Data de Termino:");
+        jLabelDataTermino.setText("Data de Termino:");
 
         dataInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,15 +92,15 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
             }
         });
 
-        labelTipoSobrado.setText("Tipo da Obra");
+        labelTipoObra.setText("Tipo da Obra");
 
         labelLaje.setText("Laje?");
 
-        tipoDoSobrado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Casa" }));
-        tipoDoSobrado.setEnabled(false);
-        tipoDoSobrado.addActionListener(new java.awt.event.ActionListener() {
+        tipoDoObra.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Casa" }));
+        tipoDoObra.setEnabled(false);
+        tipoDoObra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tipoDoSobradoActionPerformed(evt);
+                tipoDoObraActionPerformed(evt);
             }
         });
 
@@ -142,8 +144,8 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                             .addComponent(nomeObra, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tipoDoSobrado, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labelTipoSobrado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(tipoDoObra, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelTipoObra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
@@ -162,7 +164,7 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(dataTermino)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelDataTermino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(dataInicio))
                     .addComponent(labelPilares)
                     .addComponent(pilaresML, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -189,13 +191,13 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                     .addComponent(dataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(labelTipoSobrado)
+                    .addComponent(jLabelDataTermino)
+                    .addComponent(labelTipoObra)
                     .addComponent(labelLaje))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tipoDoSobrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipoDoObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(laje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(labelObraMetros)
@@ -236,23 +238,33 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_dataInicioActionPerformed
 
     private void botaoSalvarObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarObraActionPerformed
-        try {
+        /*try {
             preencherCampo();
         } catch (Exception ex) {
-            Logger.getLogger(FormularioObrasSobrado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
         }
+        */
+        cadastrarObra = new Obra();
+        cadastrarObra.setNomeObra(nomeObra.getText());
+        cadastrarObra.setDataInicio(dataInicio.getText());
+        cadastrarObra.setDataTermino(dataTermino.getText());
+        cadastrarObra.setTipoObra(1);
+        cadastrarObra.setMetroQuadradoObra(new Double(metroObra.getText()));
+        cadastrarObra.setAlturaObra(3);
+        cadastra.inserir(cadastrarObra);
         FormularioObrasCasa.this.dispose();
         limparCampos();
-        
+
     }//GEN-LAST:event_botaoSalvarObraActionPerformed
 
     private void botaoCancelarObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarObraActionPerformed
-       FormularioObrasCasa.this.dispose();
+        FormularioObrasCasa.this.dispose();
+        limparCampos();
     }//GEN-LAST:event_botaoCancelarObraActionPerformed
 
-    private void tipoDoSobradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoDoSobradoActionPerformed
+    private void tipoDoObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoDoObraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tipoDoSobradoActionPerformed
+    }//GEN-LAST:event_tipoDoObraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,13 +283,13 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormularioObrasSobrado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioObrasCasa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormularioObrasSobrado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioObrasCasa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormularioObrasSobrado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioObrasCasa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormularioObrasSobrado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioObrasCasa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -291,7 +303,7 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormularioObrasSobrado().setVisible(true);
+                new FormularioObrasCasa().setVisible(true);
             }
         });
     }
@@ -303,13 +315,13 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     private javax.swing.JTextField dataInicio;
     private javax.swing.JTextField dataTermino;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelDataTermino;
     private javax.swing.JLabel labelLaje;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelObraMetros;
     private javax.swing.JLabel labelPilares;
     private javax.swing.JLabel labelTijolo;
-    private javax.swing.JLabel labelTipoSobrado;
+    private javax.swing.JLabel labelTipoObra;
     private javax.swing.JLabel labelVigaBaldrame;
     private javax.swing.JComboBox laje;
     private javax.swing.JTextField metroObra;
@@ -317,44 +329,46 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     private javax.swing.JTextField pilaresML;
     private javax.swing.JLabel preenchCampos;
     private javax.swing.JComboBox tijoloTipo;
-    private javax.swing.JComboBox tipoDoSobrado;
+    private javax.swing.JComboBox tipoDoObra;
     // End of variables declaration//GEN-END:variables
 
-    private boolean validarCampos(){
-        if(nomeObra.getText().equals("")){
+   /* private boolean validarCampos() {
+        if (nomeObra.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Digite o nome da Obra");
             nomeObra.requestFocus();
             return false;
         }
         return true;
     }
-    public void preencherCampo() throws Exception{
+*/
+    /*public void preencherCampo() throws Exception {
         try {
-            Obra obra = new Obra();
-            obra.setNomeObra(nomeObra.getText());
-            //obra.setDataInicio(dataInicio.getText());
-            //obra.setDataTermino( dataTermino.getText());
-            obra.setMetroQuadradoObra(Double.parseDouble(metroObra.getText()));
-            obra.setTipoObra(1);
-            obra.Calcular(obra, Double.parseDouble(VigaBaldrame.getText()), tijoloTipo.getSelectedIndex() ,  Double.parseDouble(pilaresML.getText()));
-           
+            PreparedStatement pst;
+            pst = conecta.conn.prepareStatement("Insert into obra (nome_obra, data_inicio, data_termino, tipo_obra, metro_quadrado_obra, altura_obra)values(?,?,?,?,?,?)");
+            pst.setString(1, nomeObra.getText());
+            pst.setString(2, dataInicio.getText());
+            pst.setString(3, dataTermino.getText());
+            pst.setInt(4, 1);
+            pst.setDouble(5, new Double(metroObra.getText()));
+            pst.setDouble(6, 100);
+            pst.executeUpdate();
+          
+
         } catch (Exception ex) {
-            Logger.getLogger(FormularioObrasSobrado.class.getName()).log(Level.SEVERE, null, ex);
+            ex.getMessage();
+            Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
     }
-    private void limparCampos(){
+*/
+    private void limparCampos() {
         nomeObra.setText("");
         dataInicio.setText("");
         dataTermino.setText("");
         metroObra.setText("");
         pilaresML.setText("");
-
         VigaBaldrame.setText("");
-
         tijoloTipo.setSelectedIndex(0);
-        tipoDoSobrado.setSelectedIndex(0);
-
-        
+        tipoDoObra.setSelectedIndex(0);
     }
 }

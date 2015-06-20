@@ -33,8 +33,8 @@
                           <Component id="nomeObra" min="-2" pref="192" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="tipoDoSobrado" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labelTipoSobrado" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tipoDoObra" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labelTipoObra" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -61,7 +61,7 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel3" max="32767" attributes="0"/>
                       <Component id="dataTermino" max="32767" attributes="0"/>
-                      <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLabelDataTermino" alignment="1" max="32767" attributes="0"/>
                       <Component id="dataInicio" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="labelPilares" min="-2" max="-2" attributes="0"/>
@@ -95,14 +95,14 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelTipoSobrado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelDataTermino" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelTipoObra" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelLaje" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="dataTermino" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tipoDoSobrado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tipoDoObra" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="laje" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -159,7 +159,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataTerminoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="jLabelDataTermino">
       <Properties>
         <Property name="text" type="java.lang.String" value="Data de Termino:"/>
       </Properties>
@@ -169,7 +169,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataInicioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelTipoSobrado">
+    <Component class="javax.swing.JLabel" name="labelTipoObra">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tipo da Obra"/>
       </Properties>
@@ -179,7 +179,7 @@
         <Property name="text" type="java.lang.String" value="Laje?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="tipoDoSobrado">
+    <Component class="javax.swing.JComboBox" name="tipoDoObra">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="1">
@@ -189,7 +189,7 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tipoDoSobradoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tipoDoObraActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="laje">

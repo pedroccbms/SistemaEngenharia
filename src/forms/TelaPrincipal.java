@@ -288,7 +288,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        FormularioObrasSalão cadastrar = new FormularioObrasSalão();
+        FormularioObrasSalao cadastrar = new FormularioObrasSalao();
         if(!cadastrar.isVisible()){
             cadastrar.setVisible(true);
         } 

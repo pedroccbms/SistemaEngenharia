@@ -20,8 +20,8 @@ public class Obra {
 
 	private String nomeObra;
 	private int idObra;
-	private Date dataInicio;
-	private Date dataTermino;
+	private String dataInicio;
+	private String dataTermino;
 	private int tipoObra;
 	private double metroQuadradoObra;
         private double alturaObra;
@@ -90,8 +90,8 @@ public class Obra {
                 //inserir em obra
                  PreparedStatement pst = conecta.conn.prepareStatement("INSERT INTO obra VALUES('nome_obra','data_inicio','data_termino','tipo_obra','metro_quadrado','altura_obra')");
                  pst.setString(1, obra.getNomeObra());
-                 pst.setDate(2, obra.getDataInicio());
-                 pst.setDate(3, obra.getDataTermino());
+                 //pst.setDate(2, obra.getDataInicio());
+                 //pst.setDate(3, obra.getDataTermino());
                  pst.setInt(4, obra.getTipoObra());
                  pst.setDouble(5, obra.getMetroQuadradoObra());
                  pst.setDouble(6, obra.getAlturaObra());
@@ -159,28 +159,28 @@ public class Obra {
     /**
      * @return the dataInicio
      */
-    public Date getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
     /**
      * @param dataInicio the dataInicio to set
      */
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
     /**
      * @return the dataTermino
      */
-    public Date getDataTermino() {
+    public String getDataTermino() {
         return dataTermino;
     }
 
     /**
      * @param dataTermino the dataTermino to set
      */
-    public void setDataTermino(Date dataTermino) {
+    public void setDataTermino(String dataTermino) {
         this.dataTermino = dataTermino;
     }
 
