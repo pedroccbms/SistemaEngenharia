@@ -253,7 +253,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void ButomConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButomConsultarActionPerformed
-        new TelaConsultarObra().setVisible(true);
+        new TelaGerenciarObra().setVisible(true);
     }//GEN-LAST:event_ButomConsultarActionPerformed
 
     private void usuarioLoginTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioLoginTextActionPerformed
