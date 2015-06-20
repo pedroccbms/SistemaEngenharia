@@ -55,7 +55,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ButomConsultar = new javax.swing.JMenuItem();
         menuFuncionarios = new javax.swing.JMenu();
         botaoCadastrarFuncionario = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        gerenciarFuncionario = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -162,13 +162,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuFuncionarios.add(botaoCadastrarFuncionario);
 
-        jMenuItem8.setText("Gerenciar");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        gerenciarFuncionario.setText("Gerenciar");
+        gerenciarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                gerenciarFuncionarioActionPerformed(evt);
             }
         });
-        menuFuncionarios.add(jMenuItem8);
+        menuFuncionarios.add(gerenciarFuncionario);
 
         jMenuBar1.add(menuFuncionarios);
 
@@ -301,10 +301,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_botaoCadastrarFuncionarioActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        new TelaGerenciarFuncionario().setVisible(true);
-               
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    private void gerenciarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarFuncionarioActionPerformed
+        TelaAlterarFuncionario gerenciar = new TelaAlterarFuncionario();
+        if(!gerenciar.isVisible()){
+            gerenciar.setVisible(true);
+        }      
+    }//GEN-LAST:event_gerenciarFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,6 +347,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem ButomConsultar;
     private javax.swing.JButton botaoAcessar;
     private javax.swing.JMenuItem botaoCadastrarFuncionario;
+    private javax.swing.JMenuItem gerenciarFuncionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
@@ -358,7 +361,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPasswordField jPasswordCampo;
     private javax.swing.JMenu menuCadastrarObras;
     private javax.swing.JMenu menuFuncionarios;
