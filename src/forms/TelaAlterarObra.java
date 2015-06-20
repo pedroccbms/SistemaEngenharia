@@ -5,12 +5,16 @@
  */
 package forms;
 
+import Class.Obra;
+import obra.fachada.ObraFachada;
+
 /**
  *
  * @author Anderson
  */
 public class TelaAlterarObra extends javax.swing.JFrame {
-
+    private ObraFachada alterar;
+    private Obra alterarObra;
     /**
      * Creates new form TelaAlterarObras
      */
@@ -35,6 +39,12 @@ public class TelaAlterarObra extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        list1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                list1ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setText("Digite o nome da Obra");
 
@@ -97,6 +107,10 @@ public class TelaAlterarObra extends javax.swing.JFrame {
     private void butonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonCancelarActionPerformed
         TelaAlterarObra.this.dispose();
     }//GEN-LAST:event_butonCancelarActionPerformed
+
+    private void list1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_list1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,7 +6,6 @@
 package Class;
 
 import dB.*;
-import forms.CadastrarFuncionario;
 import forms.FormularioObrasSobrado;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,13 +39,12 @@ public class ObraDao {
             this.pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(FormularioObrasSobrado.class.getName()).log(Level.SEVERE, null, ex);
-        /*} finally {
+        } finally {
             try {
                 connection.conn.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-                */
         }
     }
 
@@ -104,6 +102,7 @@ public class ObraDao {
         Obra obrasCadastradas = null;
         try {
             this.connection = new ConectaBanco();
+            this.connection.conexao();
             this.connection.stm = this.connection.conn.prepareStatement(sql);
             while (rs.next()) {
                 obrasCadastradas = new Obra();

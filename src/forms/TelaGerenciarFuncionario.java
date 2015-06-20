@@ -5,16 +5,22 @@
  */
 package forms;
 
+import Class.Obra;
+import obra.fachada.ObraFachada;
+
 /**
  *
  * @author Anderson
  */
 public class TelaGerenciarFuncionario extends javax.swing.JFrame {
-
+    private ObraFachada alterar;
+    private Obra alterarObra;
     /**
      * Creates new form TelaGerenciarFuncionario2
      */
     public TelaGerenciarFuncionario() {
+        alterarObra = new Obra();
+        
         initComponents();
     }
 
@@ -42,6 +48,12 @@ public class TelaGerenciarFuncionario extends javax.swing.JFrame {
         jLabel1.setText("Selecione o Funcionário abaixo:");
 
         jButton1.setText("Pesquisar:");
+
+        list1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                list1ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(102, 102, 102));
@@ -104,6 +116,10 @@ public class TelaGerenciarFuncionario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void list1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list1ActionPerformed
+        alterar.listar();
+    }//GEN-LAST:event_list1ActionPerformed
 
     /**
      * @param args the command line arguments
