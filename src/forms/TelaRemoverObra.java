@@ -88,7 +88,7 @@ public class TelaRemoverObra extends javax.swing.JFrame {
                     .addComponent(list1, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(butomCancelar)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
