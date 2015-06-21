@@ -30,9 +30,9 @@ public class ObraRN {
         else
             JOptionPane.showMessageDialog(null, "Todos os Campo sao necessarios");
     }
-    public void excluir(Obra cadastrarObra, int id){
-        if(cadastrarObra != null && cadastrarObra.getIdObra() == id)
-            dao.excluir(cadastrarObra, id);
+    public void excluir(Obra cadastrarObra){
+        if(cadastrarObra != null && cadastrarObra.getIdObra() > 0)
+            dao.excluir(cadastrarObra);
         else{
             JOptionPane.showMessageDialog(null, "Informe um autro valido a ser excluido");
         }
@@ -44,7 +44,13 @@ public class ObraRN {
             JOptionPane.showMessageDialog(null, "Nao alterado");
         }
     }
-    public List<Obra> listar() throws SQLException{
+    public Obra consultar(int id) throws SQLException {
+        if(id > 0)
+           return dao.consulta(id);
+        else
+            return null;
+    }
+    public List<Obra> listar(){
         return dao.listar();
     }   
 }

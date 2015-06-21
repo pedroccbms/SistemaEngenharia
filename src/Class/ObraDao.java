@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,7 +24,7 @@ public class ObraDao {
 
     private ConectaBanco connection = null;
     private PreparedStatement pst;
-    
+
     public void inserir(Obra cadastarObra) {
         try {
             connection = new ConectaBanco();
@@ -48,14 +49,14 @@ public class ObraDao {
         }
     }
 
-    public void excluir(Obra cadastrarObra, int id) {
+    public void excluir(Obra cadastrarObra) {
         String Sql = "DELETE FROM obra WHERE id_obra = ?";
 
         try {
             this.connection = new ConectaBanco();
             this.connection.conexao();
             this.pst = this.connection.conn.prepareStatement(Sql);
-            this.pst.setInt(1, id);
+            this.pst.setInt(1, cadastrarObra.getIdObra());
             this.pst.execute();
             this.pst.close();
         } catch (SQLException e) {
@@ -96,7 +97,32 @@ public class ObraDao {
         }
     }
 
-    public List<Obra> listar() throws SQLException{
+    public Obra consulta(int id) throws SQLException {
+        String sql = "select * from obra where id =?";
+        try {
+            this.connection = new ConectaBanco();
+            this.connection.conexao();
+            PreparedStatement prepared = this.connection.conn.prepareStatement(sql);
+            prepared.setInt(1, id);
+            JOptionPane.showMessageDialog(null, id);
+            ResultSet rs = prepared.executeQuery();
+
+            if(rs.next()) {
+                Obra obra = new Obra();
+                //obra.setIdObra(rs.getInt("id_obra"));
+                obra.setNomeObra("nome_obra");
+                obra.setDataInicio(rs.getString("data_inicio"));
+                obra.setDataTermino(rs.getString("data_termino"));
+                obra.setTipoObra(rs.getInt("tipo_obra"));
+                obra.setMetroQuadradoObra(rs.getDouble("metro_quadrado_obra"));
+            return obra;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public List<Obra> listar(){
         String sql = "select * from obra";
         ResultSet rs = null;
         List<Obra> listarObra = new ArrayList<Obra>();

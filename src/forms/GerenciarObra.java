@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import obra.fachada.ObraFachada;
 
 /**
@@ -169,7 +170,13 @@ public class GerenciarObra extends javax.swing.JFrame {
 
     private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
         int linhaSelecionada = jTable1.getSelectedRow();//pegar linha
-        listar.excluir(excluir, Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString()));
+        try {
+            if(listar.consultar(Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString())) != null)
+                listar.excluir(listar.consultar(Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString())));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "NAO ENCONTRADO");
+            Logger.getLogger(GerenciarObra.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_botaoRemoverActionPerformed
 

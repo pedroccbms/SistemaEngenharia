@@ -74,6 +74,11 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jLabel7.setText("Cargo");
 
         jToggleButton1.setText("Salvar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jToggleButton2.setText("Cancelar");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -111,9 +116,8 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
                                             .addComponent(jTextField2)
                                             .addComponent(jTextField3)
                                             .addComponent(jTextField4)
-                                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))))
-                                .addGap(2, 2, 2)))
-                        .addGap(0, 188, Short.MAX_VALUE))
+                                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))))))
+                        .addGap(0, 190, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,6 +179,10 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         CadastrarFuncionario.this.dispose();
     }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments

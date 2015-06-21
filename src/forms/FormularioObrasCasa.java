@@ -22,11 +22,8 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     private ObraFachada cadastra;
     private Obra cadastrarObra;        
    // ConectaBanco conecta = new ConectaBanco();
+ 
     
-      public String nomeObra(){
-        
-        return nomeObra.getText();
-    }
     public FormularioObrasCasa() {
         initComponents();
         this.cadastra = new ObraFachada();

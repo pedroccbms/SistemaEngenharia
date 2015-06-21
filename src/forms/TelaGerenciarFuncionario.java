@@ -121,11 +121,7 @@ public class TelaGerenciarFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void list1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list1ActionPerformed
-        try {
-            alterar.listar();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaGerenciarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        alterar.listar();
     }//GEN-LAST:event_list1ActionPerformed
 
     /**

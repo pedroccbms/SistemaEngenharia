@@ -352,7 +352,7 @@ public class FormularioObrasSobrado extends javax.swing.JFrame {
         }
         FormularioObrasSobrado.this.dispose();
         limparCampos();
-        new CadastroOk().setVisible(true);
+        JOptionPane.showMessageDialog(null, "Cadastro ok");
     }//GEN-LAST:event_botaoSalvarObraActionPerformed
 
     private void botaoCancelarObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarObraActionPerformed

@@ -25,13 +25,16 @@ public class ObraFachada {
     public void inserir(Obra cadastrarObra){
         this.obraRN.inserir(cadastrarObra);
     }
-    public void excluir(Obra cadastrarObra, int id){
-        this.obraRN.excluir(cadastrarObra, id);
+    public void excluir(Obra cadastrarObra){
+        this.obraRN.excluir(cadastrarObra);
     }
     public void alterar(Obra cadastrarObra){
         this.obraRN.alterar(cadastrarObra);
     }
-    public List<Obra>listar() throws SQLException{
+    public Obra consultar(int id) throws SQLException{
+        return this.obraRN.consultar(id);
+    }
+    public List<Obra>listar(){
         return this.obraRN.listar();
     }
 }
