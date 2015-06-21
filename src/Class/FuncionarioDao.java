@@ -95,16 +95,18 @@ public class FuncionarioDao {
     }
 
     public List<Funcionario> listar() {
-        String sql = "SELECT * FROM obra";
+        String sql = "SELECT * FROM funcionario";
         ResultSet rs = null;
         List<Funcionario> listarFuncionario = new ArrayList<Funcionario>();
         Funcionario funcionarioCadastrados = null;
         try {
             this.connection = new ConectaBanco();
             this.connection.conexao();
-            this.connection.stm = this.connection.conn.prepareStatement(sql);
+            PreparedStatement prepared = this.connection.conn.prepareStatement(sql);
+            rs = prepared.executeQuery();
             while (rs.next()) {
                 funcionarioCadastrados = new Funcionario();
+                funcionarioCadastrados.setIdFuncionario(rs.getInt("id_funcionario"));
                 funcionarioCadastrados.setNomeFuncionario(rs.getString("nome_funcionario"));
                 funcionarioCadastrados.setCPF(rs.getString("cpf"));
                 funcionarioCadastrados.setTelefone(rs.getString("Telefone"));
@@ -114,7 +116,7 @@ public class FuncionarioDao {
 
                 listarFuncionario.add(funcionarioCadastrados);
             }
-            this.connection.stm.close();
+//            this.connection.stm.close();
             rs.close();
             
             return listarFuncionario;

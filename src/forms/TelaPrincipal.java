@@ -309,10 +309,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCadastrarFuncionarioActionPerformed
 
     private void gerenciarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarFuncionarioActionPerformed
-        TelaAlterarFuncionario gerenciar = new TelaAlterarFuncionario();
-        if(!gerenciar.isVisible()){
-            gerenciar.setVisible(true);
-        }      
+       try {
+            new GerenciarFuncionario().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }   
     }//GEN-LAST:event_gerenciarFuncionarioActionPerformed
 
     /**

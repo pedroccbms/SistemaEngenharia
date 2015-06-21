@@ -29,15 +29,16 @@ public class ModeloTabela extends AbstractTableModel{
         return 4;
     }
     
-    public String getColumName(final int column){
+    @Override
+    public String getColumnName(final int column){
         switch(column){
             case 0:
                 return "id_obra";
             case 1:
                 return "nome_obra";
-            case 3:
+            case 2:
                 return "data_inicio";
-            case 4: 
+            case 3: 
                 return "data_termino";
             default:
                 return "?";                
