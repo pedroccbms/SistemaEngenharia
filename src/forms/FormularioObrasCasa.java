@@ -361,13 +361,21 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
 
     }
 */
-    private void limparCampos() {
+        public void limparCampos() {
         nomeObra.setText("");
         dataInicio.setText("");
         dataTermino.setText("");
         metroObra.setText("");
         pilaresML.setText("");
         VigaBaldrame.setText("");
+        tijoloTipo.setSelectedIndex(0);
+        tipoDoObra.setSelectedIndex(0);
+    }
+        public void setarCampos(String nome, String di, String dt) {
+        nomeObra.setText(nome);
+        dataInicio.setText(di);
+        dataTermino.setText(dt);
+        metroObra.setText("");
         tijoloTipo.setSelectedIndex(0);
         tipoDoObra.setSelectedIndex(0);
     }

@@ -7,6 +7,7 @@ package controller;
 
 import Class.Obra;
 import Class.ObraDao;
+import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -29,9 +30,9 @@ public class ObraRN {
         else
             JOptionPane.showMessageDialog(null, "Todos os Campo sao necessarios");
     }
-    public void excluir(Obra cadastrarObra){
-        if(cadastrarObra != null && cadastrarObra.getIdObra() > 0)
-            dao.excluir(cadastrarObra);
+    public void excluir(Obra cadastrarObra, int id){
+        if(cadastrarObra != null && cadastrarObra.getIdObra() == id)
+            dao.excluir(cadastrarObra, id);
         else{
             JOptionPane.showMessageDialog(null, "Informe um autro valido a ser excluido");
         }
@@ -43,7 +44,7 @@ public class ObraRN {
             JOptionPane.showMessageDialog(null, "Nao alterado");
         }
     }
-    public List<Obra> listar(){
+    public List<Obra> listar() throws SQLException{
         return dao.listar();
     }   
 }

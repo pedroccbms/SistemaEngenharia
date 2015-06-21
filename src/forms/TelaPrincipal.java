@@ -6,6 +6,9 @@
 package forms;
 
 import dB.ConectaBanco;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -253,7 +256,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void ButomConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButomConsultarActionPerformed
-        new GerenciarObra().setVisible(true);
+        try {
+            new GerenciarObra().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButomConsultarActionPerformed
 
     private void usuarioLoginTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioLoginTextActionPerformed

@@ -7,7 +7,10 @@ package forms;
 
 import Class.ModeloTabela;
 import Class.Obra;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import obra.fachada.ObraFachada;
 
 /**
@@ -19,12 +22,12 @@ public class GerenciarObra extends javax.swing.JFrame {
     private ModeloTabela modelo;
     private List<Obra> cadastrada = null;
     
-    
-    
+    FormularioObrasCasa cadastro = new FormularioObrasCasa();
+    Obra excluir = new Obra();
     /**
      * Creates new form GerenciarObra
      */
-    public GerenciarObra() {
+    public GerenciarObra() throws SQLException {
         initComponents();
         
         listar = new ObraFachada();
@@ -52,6 +55,12 @@ public class GerenciarObra extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane2MouseClicked(evt);
+            }
+        });
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -68,6 +77,11 @@ public class GerenciarObra extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -81,6 +95,11 @@ public class GerenciarObra extends javax.swing.JFrame {
         });
 
         botaoRemover.setText("Remover");
+        botaoRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRemoverActionPerformed(evt);
+            }
+        });
 
         botaoSair.setText("Sair");
         botaoSair.addActionListener(new java.awt.event.ActionListener() {
@@ -133,8 +152,26 @@ public class GerenciarObra extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarActionPerformed
-        new FormularioObrasCasa().setVisible(true);
+        cadastro.setVisible(true);
     }//GEN-LAST:event_botaoAlterarActionPerformed
+
+    private void jScrollPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jScrollPane2MouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int linhaSelecionada = jTable1.getSelectedRow();//pegar linha
+        //cadastro.nomeObra.setText(jTable1.getValueAt(linhaSelecionada, 0).toString());
+        cadastro.setarCampos(jTable1.getValueAt(linhaSelecionada, 1).toString(),
+                jTable1.getValueAt(linhaSelecionada, 2).toString(), 
+                jTable1.getValueAt(linhaSelecionada, 3).toString());
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
+        int linhaSelecionada = jTable1.getSelectedRow();//pegar linha
+        listar.excluir(excluir, Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString()));
+        
+    }//GEN-LAST:event_botaoRemoverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,7 +203,11 @@ public class GerenciarObra extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GerenciarObra().setVisible(true);
+                try {
+                    new GerenciarObra().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(GerenciarObra.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

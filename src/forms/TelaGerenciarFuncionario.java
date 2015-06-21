@@ -6,6 +6,9 @@
 package forms;
 
 import Class.Obra;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import obra.fachada.ObraFachada;
 
 /**
@@ -118,7 +121,11 @@ public class TelaGerenciarFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void list1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list1ActionPerformed
-        alterar.listar();
+        try {
+            alterar.listar();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaGerenciarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_list1ActionPerformed
 
     /**

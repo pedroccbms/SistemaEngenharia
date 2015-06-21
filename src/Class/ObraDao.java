@@ -48,13 +48,14 @@ public class ObraDao {
         }
     }
 
-    public void excluir(Obra cadastrarObra) {
+    public void excluir(Obra cadastrarObra, int id) {
         String Sql = "DELETE FROM obra WHERE id_obra = ?";
 
         try {
             this.connection = new ConectaBanco();
+            this.connection.conexao();
             this.pst = this.connection.conn.prepareStatement(Sql);
-            //this.pst.setInt(1, cadastrarObra.getIdObra());
+            this.pst.setInt(1, id);
             this.pst.execute();
             this.pst.close();
         } catch (SQLException e) {

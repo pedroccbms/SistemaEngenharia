@@ -7,6 +7,7 @@ package obra.fachada;
 
 import Class.Obra;
 import controller.ObraRN;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -24,13 +25,13 @@ public class ObraFachada {
     public void inserir(Obra cadastrarObra){
         this.obraRN.inserir(cadastrarObra);
     }
-    public void excluir(Obra cadastrarObra){
-        this.obraRN.excluir(cadastrarObra);
+    public void excluir(Obra cadastrarObra, int id){
+        this.obraRN.excluir(cadastrarObra, id);
     }
     public void alterar(Obra cadastrarObra){
         this.obraRN.alterar(cadastrarObra);
     }
-    public List<Obra>listar(){
+    public List<Obra>listar() throws SQLException{
         return this.obraRN.listar();
     }
 }
