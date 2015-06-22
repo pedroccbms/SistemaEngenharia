@@ -24,6 +24,7 @@ public class GerenciarObra extends javax.swing.JFrame {
     private List<Obra> cadastrada = null;
     
     FormularioObrasCasa cadastro = new FormularioObrasCasa();
+    AlterarObra alterar = new AlterarObra();
     Obra excluir = new Obra();
     /**
      * Creates new form GerenciarObra
@@ -153,7 +154,7 @@ public class GerenciarObra extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarActionPerformed
-        cadastro.setVisible(true);
+        alterar.setVisible(true);
     }//GEN-LAST:event_botaoAlterarActionPerformed
 
     private void jScrollPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane2MouseClicked
@@ -163,7 +164,8 @@ public class GerenciarObra extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int linhaSelecionada = jTable1.getSelectedRow();//pegar linha
         //cadastro.nomeObra.setText(jTable1.getValueAt(linhaSelecionada, 0).toString());
-        cadastro.setarCampos(jTable1.getValueAt(linhaSelecionada, 1).toString(),
+        JOptionPane.showMessageDialog(null, Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString()));
+        alterar.setarCampos(Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString()),jTable1.getValueAt(linhaSelecionada, 1).toString(),
                 jTable1.getValueAt(linhaSelecionada, 2).toString(), 
                 jTable1.getValueAt(linhaSelecionada, 3).toString());
     }//GEN-LAST:event_jTable1MouseClicked

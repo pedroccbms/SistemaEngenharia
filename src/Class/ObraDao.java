@@ -71,11 +71,12 @@ public class ObraDao {
     }
 
     public void alterar(Obra cadastrarObra) {
-        String SQL = "UPDATE obra SET nome_obra = ?, data_inicio = ?, data_termino = ?, "
+        String sql = "UPDATE obra SET nome_obra = ?, data_inicio = ?, data_termino = ?, "
                 + "tipo_obra = ?, metro_quadrado_obra = ?, altura_obra = ? WHERE id_obra = ?";
         try {
             this.connection = new ConectaBanco();
-            this.pst = this.connection.conn.prepareStatement(SQL);
+            this.connection.conexao();
+            this.pst = this.connection.conn.prepareStatement(sql);
             this.pst.setString(1, cadastrarObra.getNomeObra());
             this.pst.setString(2, cadastrarObra.getDataInicio());
             this.pst.setString(3, cadastrarObra.getDataTermino());
