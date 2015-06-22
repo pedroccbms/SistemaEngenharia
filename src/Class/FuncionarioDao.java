@@ -49,12 +49,13 @@ public class FuncionarioDao {
         }
     }
     public void excluir(Funcionario cadastrarFuncionario) {
-        String Sql = "DELETE FROM obra WHERE id_funcionario = ?";
+        String Sql = "DELETE FROM funcionario WHERE id_funcionario = ?";
 
         try {
             this.connection = new ConectaBanco();
+            this.connection.conexao();
             this.pst = this.connection.conn.prepareStatement(Sql);
-            //this.pst.setInt(1, cadastrarObra.getIdObra());
+            this.pst.setInt(1, cadastrarFuncionario.getIdFuncionario());
             this.pst.execute();
             this.pst.close();
         } catch (SQLException e) {
@@ -130,10 +131,4 @@ public class FuncionarioDao {
             }
         }
     }
-
-    public void excluir(Funcionario cadastrarFuncionario, int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-}
-
-
+}   

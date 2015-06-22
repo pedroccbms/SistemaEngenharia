@@ -40,6 +40,8 @@ public class ModeloTabela extends AbstractTableModel{
                 return "data_inicio";
             case 3: 
                 return "data_termino";
+            case 4: 
+                return "tipo_obra";
             default:
                 return "?";                
         }
@@ -56,6 +58,8 @@ public class ModeloTabela extends AbstractTableModel{
                 return cadastradas.getDataInicio();
             case 3:
                 return cadastradas.getDataTermino();
+            case 4:
+                 return cadastradas.getTipoObra();    
             default:
                 return null;
         }
