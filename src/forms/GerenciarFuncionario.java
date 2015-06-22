@@ -65,11 +65,11 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "CPF", "RG", "Data de Nascimento", "Telefone"
+                "Nome", "CPF", "RG", "Data de Nascimento", "Telefone", "Cargo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {

@@ -26,22 +26,26 @@ public class ModeloTabelaFuncionario extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 6;
     }
     
     @Override
     public String getColumnName(final int column){
         switch(column){
             case 0:
-                return "nome";
+                return "id_funcionario";
             case 1:
+                return "nome";
+            case 2:
                 return "cpf";
-            case 3:
+            case 3: 
                 return "rg";
             case 4: 
                 return "data_nascimento";
-            case 5: 
+            case 5:
                 return "telefone";
+            case 6:
+                return "cargo";
             default:
                 return "?";                
         }
@@ -62,6 +66,8 @@ public class ModeloTabelaFuncionario extends AbstractTableModel{
                 return cadastrados.getDataNascimento();
             case 5:
                 return cadastrados.getTelefone();    
+            case 6:
+                return cadastrados.getCargo(); 
             default:
                 return null;
         }
