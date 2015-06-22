@@ -27,7 +27,7 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
     
     CadastrarFuncionario cadastro = new CadastrarFuncionario();
     Funcionario excluir = new Funcionario();
-    
+    AlterarFuncionario alterar =  new AlterarFuncionario();
     public GerenciarFuncionario() throws SQLException {
          initComponents();
         
@@ -65,11 +65,11 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "CPF", "RG", "Data de Nascimento", "Telefone", "Cargo"
+                "ID", "Nome", "CPF", "RG", "Data de Nascimento", "Telefone", "Cargo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -86,6 +86,11 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jScrollPane2);
 
         jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarActionPerformed(evt);
+            }
+        });
 
         jButtonRemover.setText("Remover");
         jButtonRemover.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +146,14 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int linhaSelecionada = jTable1.getSelectedRow();//pegar linha
+        int flag;
+        flag = jTable1.getValueAt(linhaSelecionada, 6).toString().compareTo("Engenheiro");
+        alterar.setarCampos(jTable1.getValueAt(linhaSelecionada, 0).toString(), 
+                jTable1.getValueAt(linhaSelecionada, 1).toString(), 
+                jTable1.getValueAt(linhaSelecionada, 2).toString(), 
+                jTable1.getValueAt(linhaSelecionada, 3).toString(), 
+                jTable1.getValueAt(linhaSelecionada, 4).toString(), 
+                jTable1.getValueAt(linhaSelecionada, 5).toString(), flag);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButtonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverActionPerformed
@@ -155,6 +168,10 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         GerenciarFuncionario.this.dispose();
     }//GEN-LAST:event_jButtonSairActionPerformed
+
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        alterar.setVisible(true);
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     /**
      * @param args the command line arguments

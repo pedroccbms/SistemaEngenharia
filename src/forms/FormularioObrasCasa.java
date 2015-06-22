@@ -235,13 +235,7 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_dataInicioActionPerformed
 
     private void botaoSalvarObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarObraActionPerformed
-        /*try {
-         preencherCampo();
-         } catch (Exception ex) {
-         Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         */
-        int idObra = 0;
+       
         cadastrarObra = new Obra();
         cadastrarObra.setNomeObra(nomeObra.getText());
         cadastrarObra.setDataInicio(dataInicio.getText());
@@ -250,12 +244,8 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
         cadastrarObra.setMetroQuadradoObra(new Double(metroObra.getText()));
         cadastrarObra.setAlturaObra(cadastrarObra.calcularAlturaObra(cadastrarObra.getTipoObra()));
         cadastra.inserir(cadastrarObra);
-        try {
-            idObra =  cadastra.consultarIdPorNome(cadastrarObra.getNomeObra());
-        } catch (SQLException ex) {
-            Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // insumos da entrada
+
+       /* // insumos da entrada
         metragemLinearVigaBaldrame = Double.parseDouble(VigaBaldrame.getText());
         tipoTijolo = jComboBox1.getSelectedIndex();
         metroLinearPilares = Double.parseDouble(pilaresML.getText());
@@ -263,6 +253,7 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
         insumo = insumo.calcular(cadastrarObra, metragemLinearVigaBaldrame, tipoTijolo, metroLinearPilares);
         
         cadastraInsumo.inserir(insumo, idObra);
+        */
         FormularioObrasCasa.this.dispose();
         limparCampos();
 

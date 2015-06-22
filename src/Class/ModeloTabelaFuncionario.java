@@ -26,7 +26,7 @@ public class ModeloTabelaFuncionario extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 7;
     }
     
     @Override
