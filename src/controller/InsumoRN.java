@@ -5,6 +5,8 @@
  */
 package controller;
 
+import Class.Insumo;
+import Class.InsumoDao;
 import Class.Obra;
 import Class.ObraDao;
 import java.sql.SQLException;
@@ -13,32 +15,34 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Pedro
+ * @author Family
  */
-public class ObraRN {
-    private ObraDao dao;
+public class InsumoRN {
+    private InsumoDao dao;
     
-    public ObraRN(){
-        this.dao = new ObraDao();
+    public InsumoRN(){
+        this.dao = new InsumoDao();
     }
     
-    public void inserir (Obra cadastrarObra){
-        if(cadastrarObra != null && !cadastrarObra.getNomeObra().equals("")){
-            dao.inserir(cadastrarObra);
-            JOptionPane.showMessageDialog(null, "Obra Cadastrada");
+    public void inserir (Insumo cadastrarInsumo, int idObra){
+        if(cadastrarInsumo != null){
+            dao.inserir(cadastrarInsumo, idObra);
+            JOptionPane.showMessageDialog(null, "Insumo Cadastrado");
         }
         else
             JOptionPane.showMessageDialog(null, "Todos os Campo sao necessarios");
     }
-    public void excluir(Obra cadastrarObra){
-        if(cadastrarObra != null && cadastrarObra.getIdObra() > 0){
-            dao.excluir(cadastrarObra);
+    
+    public void excluir(Insumo cadastrarInsumo){
+        if(cadastrarInsumo != null && cadastrarInsumo.getIdInsumo()> 0){
+            dao.excluir(cadastrarInsumo);
             JOptionPane.showMessageDialog(null, "excluido");
         }
         else{
             JOptionPane.showMessageDialog(null, "Informe um autro valido a ser excluido");
         }
     }
+    /*
     public void alterar(Obra cadastrarObra){
         if(cadastrarObra != null && !cadastrarObra.getNomeObra().equals(""))
             dao.alterar(cadastrarObra);
@@ -46,18 +50,16 @@ public class ObraRN {
             JOptionPane.showMessageDialog(null, "Nao alterado");
         }
     }
+  
     public Obra consultar(int id) throws SQLException {
         if(id > 0)
            return dao.consulta(id);
         else
             return null;
     }
-    public int consultarIdPorNome(String nomeObra) throws SQLException {
-        
-           return dao.consultaIdPorNome(nomeObra);
-       
-    }
-    public List<Obra> listar(){
+    */
+    public List<Insumo> listar(){
         return dao.listar();
     }   
+      
 }

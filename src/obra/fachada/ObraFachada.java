@@ -34,6 +34,9 @@ public class ObraFachada {
     public Obra consultar(int id) throws SQLException{
         return this.obraRN.consultar(id);
     }
+    public int consultarIdPorNome(String nomeObra) throws SQLException{
+        return this.obraRN.consultarIdPorNome(nomeObra);
+    }
     public List<Obra>listar(){
         return this.obraRN.listar();
     }

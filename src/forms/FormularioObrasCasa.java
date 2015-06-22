@@ -1,8 +1,11 @@
 package forms;
 
+import Class.Insumo;
 import Class.Obra;
+import InsumoFachada.InsumoFachada;
 import dB.ConectaBanco;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -18,16 +21,20 @@ import obra.fachada.ObraFachada;
  * @author Maxximus
  */
 public class FormularioObrasCasa extends javax.swing.JFrame {
-
-    private ObraFachada cadastra;
-    private Obra cadastrarObra;        
-   // ConectaBanco conecta = new ConectaBanco();
- 
     
+    private InsumoFachada cadastraInsumo;
+    private ObraFachada cadastra;
+    private Obra cadastrarObra;
+    double metragemLinearVigaBaldrame;
+    int tipoTijolo;
+    double metroLinearPilares;
+
+    // ConectaBanco conecta = new ConectaBanco();
     public FormularioObrasCasa() {
         initComponents();
         this.cadastra = new ObraFachada();
-     //   conecta.conexao();
+        this.cadastraInsumo = new InsumoFachada();
+        //   conecta.conexao();
     }
 
     /**
@@ -57,9 +64,9 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
         labelPilares = new javax.swing.JLabel();
         pilaresML = new javax.swing.JTextField();
         labelTijolo = new javax.swing.JLabel();
-        tijoloTipo = new javax.swing.JComboBox();
         botaoSalvarObra = new javax.swing.JButton();
         botaoCancelarObra = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -111,8 +118,6 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
 
         labelTijolo.setText("Tijolo");
 
-        tijoloTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bloco de Concreto", "Tijolo Barro Cozido", "Tijo Furado - 8 Furos", "Tijolo Furado - 10 Furos", "Tijolo de Vidro" }));
-
         botaoSalvarObra.setText("Salvar");
         botaoSalvarObra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +131,8 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                 botaoCancelarObraActionPerformed(evt);
             }
         });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tijolo 8 Furos", "Tijolo 10 furos", "Tijolo à vista" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,8 +161,7 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                             .addComponent(labelVigaBaldrame)
                             .addComponent(metroObra, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(VigaBaldrame, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelTijolo)
-                            .addComponent(tijoloTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(labelTijolo))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -172,6 +178,10 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(botaoCancelarObra)
                 .addGap(8, 8, 8))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,7 +221,7 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(labelTijolo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tijoloTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoSalvarObra)
@@ -236,19 +246,33 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
 
     private void botaoSalvarObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarObraActionPerformed
         /*try {
-            preencherCampo();
-        } catch (Exception ex) {
-            Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
+         preencherCampo();
+         } catch (Exception ex) {
+         Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         */
+        int idObra = 0;
         cadastrarObra = new Obra();
         cadastrarObra.setNomeObra(nomeObra.getText());
         cadastrarObra.setDataInicio(dataInicio.getText());
         cadastrarObra.setDataTermino(dataTermino.getText());
-        cadastrarObra.setTipoObra(1);
+        cadastrarObra.setTipoObra(tipoDoObra.getSelectedIndex());
         cadastrarObra.setMetroQuadradoObra(new Double(metroObra.getText()));
-        cadastrarObra.setAlturaObra(3);
+        cadastrarObra.setAlturaObra(cadastrarObra.calcularAlturaObra(cadastrarObra.getTipoObra()));
         cadastra.inserir(cadastrarObra);
+        try {
+            idObra =  cadastra.consultarIdPorNome(cadastrarObra.getNomeObra());
+        } catch (SQLException ex) {
+            Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        // insumos da entrada
+        metragemLinearVigaBaldrame = Double.parseDouble(VigaBaldrame.getText());
+        tipoTijolo = jComboBox1.getSelectedIndex();
+        metroLinearPilares = Double.parseDouble(pilaresML.getText());
+        Insumo insumo = new Insumo();
+        insumo = insumo.calcular(cadastrarObra, metragemLinearVigaBaldrame, tipoTijolo, metroLinearPilares);
+        
+        cadastraInsumo.inserir(insumo, idObra);
         FormularioObrasCasa.this.dispose();
         limparCampos();
 
@@ -311,6 +335,7 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     private javax.swing.JButton botaoSalvarObra;
     private javax.swing.JTextField dataInicio;
     private javax.swing.JTextField dataTermino;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelDataTermino;
     private javax.swing.JLabel labelLaje;
@@ -325,55 +350,69 @@ public class FormularioObrasCasa extends javax.swing.JFrame {
     private javax.swing.JTextField nomeObra;
     private javax.swing.JTextField pilaresML;
     private javax.swing.JLabel preenchCampos;
-    private javax.swing.JComboBox tijoloTipo;
     private javax.swing.JComboBox tipoDoObra;
     // End of variables declaration//GEN-END:variables
 
-   /* private boolean validarCampos() {
-        if (nomeObra.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite o nome da Obra");
-            nomeObra.requestFocus();
-            return false;
-        }
-        return true;
-    }
-*/
+    /* private boolean validarCampos() {
+     if (nomeObra.getText().equals("")) {
+     JOptionPane.showMessageDialog(this, "Digite o nome da Obra");
+     nomeObra.requestFocus();
+     return false;
+     }
+     return true;
+     }
+     */
     /*public void preencherCampo() throws Exception {
-        try {
-            PreparedStatement pst;
-            pst = conecta.conn.prepareStatement("Insert into obra (nome_obra, data_inicio, data_termino, tipo_obra, metro_quadrado_obra, altura_obra)values(?,?,?,?,?,?)");
-            pst.setString(1, nomeObra.getText());
-            pst.setString(2, dataInicio.getText());
-            pst.setString(3, dataTermino.getText());
-            pst.setInt(4, 1);
-            pst.setDouble(5, new Double(metroObra.getText()));
-            pst.setDouble(6, 100);
-            pst.executeUpdate();
+     try {
+     PreparedStatement pst;
+     pst = conecta.conn.prepareStatement("Insert into obra (nome_obra, data_inicio, data_termino, tipo_obra, metro_quadrado_obra, altura_obra)values(?,?,?,?,?,?)");
+     pst.setString(1, nomeObra.getText());
+     pst.setString(2, dataInicio.getText());
+     pst.setString(3, dataTermino.getText());
+     pst.setInt(4, 1);
+     pst.setDouble(5, new Double(metroObra.getText()));
+     pst.setDouble(6, 100);
+     pst.executeUpdate();
           
 
-        } catch (Exception ex) {
-            ex.getMessage();
-            Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
-        }
+     } catch (Exception ex) {
+     ex.getMessage();
+     Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
+     }
 
-    }
-*/
-        public void limparCampos() {
+     }
+     */
+    public void limparCampos() {
         nomeObra.setText("");
         dataInicio.setText("");
         dataTermino.setText("");
         metroObra.setText("");
         pilaresML.setText("");
         VigaBaldrame.setText("");
-        tijoloTipo.setSelectedIndex(0);
+
         tipoDoObra.setSelectedIndex(0);
     }
-        public void setarCampos(String nome, String di, String dt) {
+
+    public void setarCampos(String nome, String di, String dt) {
         nomeObra.setText(nome);
         dataInicio.setText(di);
         dataTermino.setText(dt);
         metroObra.setText("");
-        tijoloTipo.setSelectedIndex(0);
+
         tipoDoObra.setSelectedIndex(0);
+    }
+
+    /**
+     * @return the cadastraInsumo
+     */
+    public InsumoFachada getCadastraInsumo() {
+        return cadastraInsumo;
+    }
+
+    /**
+     * @param cadastraInsumo the cadastraInsumo to set
+     */
+    public void setCadastraInsumo(InsumoFachada cadastraInsumo) {
+        this.cadastraInsumo = cadastraInsumo;
     }
 }

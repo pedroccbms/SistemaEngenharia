@@ -122,6 +122,29 @@ public class ObraDao {
         }
         return null;
     }
+     public int consultaIdPorNome(String name) throws SQLException {
+        String sql = "select * from obra where nome_obra =?";
+        int idObra;
+        try {
+            this.connection = new ConectaBanco();
+            this.connection.conexao();
+            PreparedStatement prepared = this.connection.conn.prepareStatement(sql);
+            prepared.setString(1, name);
+            JOptionPane.showMessageDialog(null, name);
+            ResultSet rs = prepared.executeQuery();
+
+            if(rs.next()) {
+               
+                //obra.setIdObra(rs.getInt("id_obra"));
+                idObra = rs.getInt("id_obra");
+                
+                return idObra;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
     public List<Obra> listar(){
         String sql = "select * from obra";
         ResultSet rs = null;
@@ -142,7 +165,6 @@ public class ObraDao {
                 obrasCadastradas.setTipoObra(rs.getInt("tipo_obra"));
                 obrasCadastradas.setMetroQuadradoObra(rs.getInt("metro_quadrado_obra"));
                 obrasCadastradas.setAlturaObra(rs.getInt("altura_Obra"));
-
                 listarObra.add(obrasCadastradas);
             }
             //this.connection.stm.close();

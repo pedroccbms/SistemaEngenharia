@@ -38,6 +38,49 @@ public class Insumo {
 
     }
     
+    public Insumo calcular(Obra cadastrarObra, double metragemLinearVigaBaldrame,
+    int tipoTijolo,
+    double metroLinearPilares) {
+                           Insumo insumo = new Insumo();
+        insumo.setTipoTijolo(tipoTijolo);
+        insumo.setMetroLinearPilares(metroLinearPilares);
+        insumo.setMetragemLinearVigaBaldrame(metragemLinearVigaBaldrame);
+        insumo.setMetroQuadradoLage(cadastrarObra.getMetroQuadradoObra());
+        insumo.setMetroQuadradoContrapiso(cadastrarObra.getMetroQuadradoObra());
+        insumo.setMetroQuadradoCobertura(cadastrarObra.getMetroQuadradoObra());
+        insumo.setMetroQuadradoPiso(cadastrarObra.getMetroQuadradoObra());
+        // Calcu
+
+        if (insumo.getTipoTijolo() == 0) {
+            // é tijolo 10 furos
+            insumo.setMetroQuadradoTijolo(0.02205);
+        } else if (insumo.getTipoTijolo() == 1) {
+            // é tijolo 8 furos
+            insumo.setMetroQuadradoTijolo(0.038025);
+        }
+        if (insumo.getTipoTijolo() == 2) {
+            // é tijolo a vista
+            insumo.setMetroQuadradoTijolo(0.02);
+        }
+
+        insumo.setMetroQuadradoAlvenaria(insumo.getMetragemLinearVigaBaldrame() * cadastrarObra.getAlturaObra());
+        insumo.setMetroQuadradoReboco((insumo.getMetroQuadradoAlvenaria() * 0.03) * 2);
+        insumo.setQuantidadeTijolo(insumo.getMetroQuadradoAlvenaria() / insumo.getMetroQuadradoTijolo());
+        insumo.setQuantidadeLataTinta((insumo.getMetroQuadradoReboco() + insumo.getMetroQuadradoLage()) / 80);
+        insumo.setMetroCubicoBroca(3.14 * (0.30 * 0.30) * cadastrarObra.getAlturaObra());
+        insumo.setMetroCubicoConcreto((insumo.getMetroCubicoBroca() + insumo.getMetragemLinearVigaBaldrame() * 3 + insumo.getMetroQuadradoContrapiso())
+                * 0.02 * insumo.getMetroLinearPilares() * 0.30 + insumo.getMetroQuadradoLage() * 0.20);
+        insumo.setMetroCubicoArgamassa((insumo.getMetroQuadradoContrapiso() * 0.015
+                + ((insumo.getQuantidadeTijolo() * 0.2 * 0.9) * 2) + insumo.getMetroQuadradoReboco() * 0.015));
+        insumo.setSacosCimento(insumo.getMetroCubicoArgamassa() * 4 + insumo.getMetroCubicoConcreto() * 6);
+        insumo.setMetroCubicoAreia(insumo.getMetroCubicoArgamassa() * 0.95
+                + insumo.getMetroCubicoConcreto() * 0.75);
+        insumo.setMetroCubicoPedra(insumo.getMetroCubicoConcreto() * 0.65);
+        insumo.setSacoCal(insumo.getMetroCubicoArgamassa() * 4);
+        insumo.setQuantidadeTelha(insumo.getMetroQuadradoCobertura() * 17);
+
+        return insumo;       
+    }
     /**
      * @return the idInsumo
      */
