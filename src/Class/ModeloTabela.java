@@ -60,6 +60,12 @@ public class ModeloTabela extends AbstractTableModel{
                 return null;
         }
     }
+    
+    public void deletarLinha(int linha){
+        obrasCadastradas.remove(linha);
+        fireTableRowsDeleted(linha, linha);
+    }
+    
     public Obra getObra(int rowIndex){
         Obra obra = obrasCadastradas.get(rowIndex);
         return obra;
