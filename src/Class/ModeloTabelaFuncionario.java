@@ -66,6 +66,11 @@ public class ModeloTabelaFuncionario extends AbstractTableModel{
                 return null;
         }
     }
+    public void deletarLinha(int linha){
+        funcionariosCadastrados.remove(linha);
+        fireTableRowsDeleted(linha, linha);
+    }
+    
     public Funcionario getFuncionario(int rowIndex){
         Funcionario funcionario = funcionariosCadastrados.get(rowIndex);
         return funcionario;

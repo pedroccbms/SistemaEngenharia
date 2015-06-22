@@ -32,9 +32,11 @@ public class FuncionarioRN {
             JOptionPane.showMessageDialog(null, "Todos os Campo sao necessarios");
     }
     
-    public void excluir(Funcionario cadastrarFuncionario, int id){
-        if(cadastrarFuncionario != null && cadastrarFuncionario.getIdFuncionario() == id)
-            dao.excluir(cadastrarFuncionario, id);
+    public void excluir(Funcionario cadastrarFuncionario){
+        if(cadastrarFuncionario != null && cadastrarFuncionario.getIdFuncionario() > 0){
+            dao.excluir(cadastrarFuncionario);
+            JOptionPane.showMessageDialog(null, "excluido");
+        }
         else{
             JOptionPane.showMessageDialog(null, "Informe um autro valido a ser excluido");
         }

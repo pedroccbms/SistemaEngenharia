@@ -25,8 +25,8 @@ public class FuncionarioFachada {
     public void inserir(Funcionario cadastrarFuncionario){
         this.funcionarioRN.inserir(cadastrarFuncionario);
     }
-    public void excluir(Funcionario cadastrarFuncionario, int id){
-        this.funcionarioRN.excluir(cadastrarFuncionario, id);
+    public void excluir(Funcionario cadastrarFuncionario){
+        this.funcionarioRN.excluir(cadastrarFuncionario);
     }
     public void alterar(Funcionario cadastrarFuncionario){
         this.funcionarioRN.alterar(cadastrarFuncionario);
