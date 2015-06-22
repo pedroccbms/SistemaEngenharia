@@ -213,8 +213,6 @@ public class AlterarObra extends javax.swing.JFrame {
         cadastrarObra.setNomeObra(nomeObra.getText());
         cadastrarObra.setDataInicio(dataInicio.getText());
         cadastrarObra.setDataTermino(dataTermino.getText());
-        cadastrarObra.setTipoObra(1);
-        cadastrarObra.setMetroQuadradoObra(new Double(metroObra.getText()));
         cadastra.alterar(cadastrarObra);
         AlterarObra.this.dispose();
     }//GEN-LAST:event_botaoAlterarActionPerformed
@@ -285,7 +283,7 @@ public class AlterarObra extends javax.swing.JFrame {
     private javax.swing.JComboBox tipoObra;
     // End of variables declaration//GEN-END:variables
 
-    public void setarCampos(int id, String nome, String di, String dt) {
+    public void setarCampos(String id, String nome, String di, String dt) {
         IdAlterar.setText(String.valueOf(id));
         nomeObra.setText(nome);
         dataInicio.setText(di);

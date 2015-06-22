@@ -36,6 +36,7 @@ public class ObraDao {
             this.pst.setInt(4, cadastarObra.getTipoObra());
             this.pst.setDouble(5, cadastarObra.getMetroQuadradoObra());
             this.pst.setDouble(6, cadastarObra.getAlturaObra());
+            
             this.pst.executeUpdate();
             this.pst.close();
         } catch (SQLException ex) {

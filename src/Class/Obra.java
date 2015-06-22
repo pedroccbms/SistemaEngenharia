@@ -25,11 +25,13 @@ public class Obra {
 	private int tipoObra;
 	private double metroQuadradoObra;
         private double alturaObra;
+        private double tijolo;
+        private double vigabaldrame;
 
      public double calcularAlturaObra(int tipoObra){
         if (tipoObra == 1) {
             // é casa térrea
-            return 3;
+            setAlturaObra(3);
         } else if (tipoObra == 2) {
             // é scadastrarObrado
             return 6;
@@ -135,4 +137,33 @@ public class Obra {
     public void setAlturaObra(double alturaObra) {
         this.alturaObra = alturaObra;
     }
+
+    /**
+     * @return the tijolo
+     */
+    public double getTijolo() {
+        return tijolo;
+    }
+
+    /**
+     * @param tijolo the tijolo to set
+     */
+    public void setTijolo(double tijolo) {
+        this.tijolo = tijolo;
+    }
+
+    /**
+     * @return the vigabaldrame
+     */
+    public double getVigabaldrame() {
+        return vigabaldrame;
+    }
+
+    /**
+     * @param vigabaldrame the vigabaldrame to set
+     */
+    public void setVigabaldrame(double vigabaldrame) {
+        this.vigabaldrame = vigabaldrame;
+    }
+    
 }

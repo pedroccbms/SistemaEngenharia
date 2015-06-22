@@ -48,14 +48,17 @@ public class GerenciarObra extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         botaoAlterar = new javax.swing.JButton();
         botaoRemover = new javax.swing.JButton();
         botaoSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setText("GERENCIAR OBRA");
 
         jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -85,9 +88,6 @@ public class GerenciarObra extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(jTable1);
-
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setText("GERENCIAR OBRA");
 
         botaoAlterar.setText("Alterar");
         botaoAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -136,9 +136,9 @@ public class GerenciarObra extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jLabel1)
-                .addGap(41, 41, 41)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoAlterar)
                     .addComponent(botaoRemover)
@@ -157,19 +157,6 @@ public class GerenciarObra extends javax.swing.JFrame {
         alterar.setVisible(true);
     }//GEN-LAST:event_botaoAlterarActionPerformed
 
-    private void jScrollPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jScrollPane2MouseClicked
-
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        int linhaSelecionada = jTable1.getSelectedRow();//pegar linha
-        //cadastro.nomeObra.setText(jTable1.getValueAt(linhaSelecionada, 0).toString());
-        JOptionPane.showMessageDialog(null, Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString()));
-        alterar.setarCampos(Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString()),jTable1.getValueAt(linhaSelecionada, 1).toString(),
-                jTable1.getValueAt(linhaSelecionada, 2).toString(), 
-                jTable1.getValueAt(linhaSelecionada, 3).toString());
-    }//GEN-LAST:event_jTable1MouseClicked
-
     private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
        int linhaSelecionada = jTable1.getSelectedRow();//pegar linha
        Obra obra = new Obra();
@@ -177,6 +164,18 @@ public class GerenciarObra extends javax.swing.JFrame {
        listar.excluir(obra);
        modelo.deletarLinha(linhaSelecionada);
     }//GEN-LAST:event_botaoRemoverActionPerformed
+
+    private void jScrollPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jScrollPane2MouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int linhaSelecionada = jTable1.getSelectedRow();//pegar linha
+        //cadastro.nomeObra.setText(jTable1.getValueAt(linhaSelecionada, 0).toString());
+        //JOptionPane.showMessageDialog(null, Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString()));
+        alterar.setarCampos(jTable1.getValueAt(linhaSelecionada, 0).toString(), jTable1.getValueAt(linhaSelecionada, 1).toString(),
+                jTable1.getValueAt(linhaSelecionada, 2).toString(), jTable1.getValueAt(linhaSelecionada, 3).toString());
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments

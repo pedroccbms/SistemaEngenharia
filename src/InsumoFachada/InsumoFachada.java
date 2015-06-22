@@ -6,10 +6,7 @@
 package InsumoFachada;
 
 import Class.Insumo;
-import Class.Obra;
 import controller.InsumoRN;
-import controller.ObraRN;
-import java.sql.SQLException;
 import java.util.List;
 
 /**

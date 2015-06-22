@@ -70,11 +70,12 @@ public class FuncionarioDao {
     }
 
     public void alterar(Funcionario cadastrarFuncionario) {
-        String SQL = "UPDATE obra SET nome_funcionario = ?, cpf = ?, telefone = ?, "
+        String sql = "UPDATE obra SET nome_funcionario = ?, cpf = ?, telefone = ?, "
                 + " = ?, rg = ?, data_nascimento = ?, cargo = ? WHERE id_obra = ?";
         try {
             this.connection = new ConectaBanco();
-            this.pst = this.connection.conn.prepareStatement(SQL);
+            this.connection.conexao();
+            this.pst = this.connection.conn.prepareStatement(sql);
              this.pst.setString(1, cadastrarFuncionario.getNomeFuncionario());
             this.pst.setString(2, cadastrarFuncionario.getCPF());
             this.pst.setString(3, cadastrarFuncionario.getTelefone());

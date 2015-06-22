@@ -40,8 +40,6 @@ public class ModeloTabela extends AbstractTableModel{
                 return "data_inicio";
             case 3: 
                 return "data_termino";
-            case 4: 
-                return "tipo_obra";
             default:
                 return "?";                
         }

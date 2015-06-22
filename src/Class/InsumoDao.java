@@ -6,7 +6,7 @@
 package Class;
 
 import dB.ConectaBanco;
-import forms.FormularioObrasSobrado;
+import forms.FormularioObrasCasa;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -55,7 +54,7 @@ public class InsumoDao {
             this.pst.executeUpdate();
             this.pst.close();
         } catch (SQLException ex) {
-            Logger.getLogger(FormularioObrasSobrado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 connection.conn.close();
