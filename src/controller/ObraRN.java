@@ -31,8 +31,10 @@ public class ObraRN {
             JOptionPane.showMessageDialog(null, "Todos os Campo sao necessarios");
     }
     public void excluir(Obra cadastrarObra){
-        if(cadastrarObra != null && cadastrarObra.getIdObra() > 0)
+        if(cadastrarObra != null && cadastrarObra.getIdObra() > 0){
             dao.excluir(cadastrarObra);
+            JOptionPane.showMessageDialog(null, "excluido");
+        }
         else{
             JOptionPane.showMessageDialog(null, "Informe um autro valido a ser excluido");
         }

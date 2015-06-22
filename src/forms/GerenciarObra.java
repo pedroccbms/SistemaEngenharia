@@ -170,14 +170,17 @@ public class GerenciarObra extends javax.swing.JFrame {
 
     private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
         int linhaSelecionada = jTable1.getSelectedRow();//pegar linha
-        try {
+        /*try {
             if(listar.consultar(Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString())) != null)
                 listar.excluir(listar.consultar(Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString())));
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "NAO ENCONTRADO");
             Logger.getLogger(GerenciarObra.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        }*/
+       Obra obra = new Obra();
+       obra.setIdObra(Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString()));
+       listar.excluir(obra);
+       
     }//GEN-LAST:event_botaoRemoverActionPerformed
 
     /**
