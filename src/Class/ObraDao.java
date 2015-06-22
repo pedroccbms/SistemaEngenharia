@@ -6,7 +6,7 @@
 package Class;
 
 import dB.*;
-import forms.FormularioObrasSobrado;
+import forms.FormularioObrasCasa;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,7 +39,7 @@ public class ObraDao {
             this.pst.executeUpdate();
             this.pst.close();
         } catch (SQLException ex) {
-            Logger.getLogger(FormularioObrasSobrado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 connection.conn.close();
