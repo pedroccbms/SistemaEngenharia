@@ -53,8 +53,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuCadastrarObras = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
         ButomConsultar = new javax.swing.JMenuItem();
         menuFuncionarios = new javax.swing.JMenu();
         botaoCadastrarFuncionario = new javax.swing.JMenuItem();
@@ -118,29 +116,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Cadastrar");
 
-        jMenuItem11.setText("Casa");
+        jMenuItem11.setText("Obra");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem11ActionPerformed(evt);
             }
         });
         jMenu1.add(jMenuItem11);
-
-        jMenuItem12.setText("Sobrado");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem12);
-
-        jMenuItem13.setText("Salão");
-        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem13ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem13);
 
         menuCadastrarObras.add(jMenu1);
 
@@ -246,15 +228,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenu3MouseClicked
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-        
-    FormularioObrasSobrado cadastrar = new FormularioObrasSobrado();
-        if(!cadastrar.isVisible()){
-            cadastrar.setVisible(true);
-        }       
-        
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
-
     private void ButomConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButomConsultarActionPerformed
         try {
             new GerenciarObra().setVisible(true);
@@ -293,13 +266,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             cadastrar.setVisible(true);
         }       
     }//GEN-LAST:event_jMenuItem11ActionPerformed
-
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        FormularioObrasSalao cadastrar = new FormularioObrasSalao();
-        if(!cadastrar.isVisible()){
-            cadastrar.setVisible(true);
-        } 
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void botaoCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarFuncionarioActionPerformed
         CadastrarFuncionario cadastrar = new CadastrarFuncionario();
@@ -363,8 +329,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

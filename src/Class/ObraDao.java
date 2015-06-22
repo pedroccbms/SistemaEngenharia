@@ -6,7 +6,7 @@
 package Class;
 
 import dB.*;
-import forms.FormularioObrasSobrado;
+import forms.FormularioObrasCasa;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,7 +39,7 @@ public class ObraDao {
             this.pst.executeUpdate();
             this.pst.close();
         } catch (SQLException ex) {
-            Logger.getLogger(FormularioObrasSobrado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FormularioObrasCasa.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 connection.conn.close();
@@ -71,11 +71,12 @@ public class ObraDao {
     }
 
     public void alterar(Obra cadastrarObra) {
-        String SQL = "UPDATE obra SET nome_obra = ?, data_inicio = ?, data_termino = ?, "
+        String sql = "UPDATE obra SET nome_obra = ?, data_inicio = ?, data_termino = ?, "
                 + "tipo_obra = ?, metro_quadrado_obra = ?, altura_obra = ? WHERE id_obra = ?";
         try {
             this.connection = new ConectaBanco();
-            this.pst = this.connection.conn.prepareStatement(SQL);
+            this.connection.conexao();
+            this.pst = this.connection.conn.prepareStatement(sql);
             this.pst.setString(1, cadastrarObra.getNomeObra());
             this.pst.setString(2, cadastrarObra.getDataInicio());
             this.pst.setString(3, cadastrarObra.getDataTermino());

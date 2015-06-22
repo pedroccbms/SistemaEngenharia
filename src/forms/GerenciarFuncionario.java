@@ -95,6 +95,11 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
         });
 
         jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,6 +151,10 @@ public class GerenciarFuncionario extends javax.swing.JFrame {
        listar.excluir(funcionario);
        modelo.deletarLinha(linhaSelecionada);
     }//GEN-LAST:event_jButtonRemoverActionPerformed
+
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        GerenciarFuncionario.this.dispose();
+    }//GEN-LAST:event_jButtonSairActionPerformed
 
     /**
      * @param args the command line arguments
